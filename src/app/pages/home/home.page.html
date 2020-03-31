@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+  <div id="container" *ngIf="menu">
+    <video width="100%" autoplay="autoplay" height="100%" preload="auto">
+      <source [src]="menuVideo" type="video/mp4">
+      Your browser does not support the video tag.
+    </video> 
+
+    <div id="next">
+      <div class="language-selection" (click)="changeLanguage('EN')"></div>
+    </div>
+    <div id="previous">
+      <div class="language-selection" (click)="changeLanguage('TR')"></div>
+    </div>
+  </div>
+
+  <div class="loader" *ngIf="preloadVideoIndex >= 0" [class.ghost]="videos.length == preloadVideoIndex">
+    <!-- Loading all videos -->
+    <video id="preoload" width="100%" height="100%" class="loader-videos" (progress)="loadedVideo()" preload="auto">
+      <source [src]="videos[preloadVideoIndex].safe_url" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>  
+  
+    <!-- Loader bar -->
+    <div class="loading-bar" *ngIf="videos.length != preloadVideoIndex">
+      Loading the story
+      <ion-progress-bar value="{{progress}}"></ion-progress-bar>
+    </div>
+  </div>
+
+  <div id="container" [class.ghost]="!safeUrl">
+    <video #video width="100%" height="100%">
+      <source [src]="safeUrl" *ngIf="safeUrl" type="video/mp4">
+      Your browser does not support the video tag.
+    </video> 
+    <div id="next" (click)="next()">
+      <div class="button" *ngIf="sceneIsActive">
+        <ion-icon name="play-forward"></ion-icon>
+      </div>
+    </div>
+    <div id="previous" (click)="previous()">
+      <div class="button" *ngIf="sceneIsActive">
+        <ion-icon name="play-back"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ion-content>
