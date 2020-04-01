@@ -46,6 +46,8 @@ export class HomePage {
         this.videos.map((video: Video, index) => {
           this.videos[index].safe_url = this.sanitizer.bypassSecurityTrustResourceUrl(video.url);  
         })
+        this.activeVideo = 0;
+        this.playVideo();
 
         this.preloadVideoIndex = 0;
 
