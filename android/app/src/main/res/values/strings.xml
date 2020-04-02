@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Story Book</string>
-    <string name="title_activity_main">Story Book</string>
-    <string name="package_name">com.teknodev.storybook</string>
-    <string name="custom_url_scheme">com.teknodev.storybook</string>
+    <string name="app_name">Tomris</string>
+    <string name="title_activity_main">Tomris</string>
+    <string name="package_name">com.tomris.duslerkralligikadinlari</string>
+    <string name="custom_url_scheme">com.tomris.duslerkralligikadinlari</string>
 </resources>

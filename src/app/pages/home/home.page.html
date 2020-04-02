@@ -1,9 +1,14 @@
 <ion-content [fullscreen]="true">
   <div id="container" *ngIf="menu">
-    <video width="100%" autoplay="autoplay" height="100%" preload="auto">
-      <source [src]="menuVideo" type="video/mp4">
+    <video
+      width="100%"
+      autoplay="autoplay"
+      height="100%"
+      poster="../assets/poster.jpg"
+    >
+      <source src="../assets/videos/menu.mp4" type="video/mp4" />
       Your browser does not support the video tag.
-    </video> 
+    </video>
 
     <div id="next">
       <div class="language-selection" (click)="changeLanguage('EN')"></div>
@@ -12,10 +17,10 @@
       <div class="language-selection" (click)="changeLanguage('TR')"></div>
     </div>
   </div>
-<!--
+  <!--
   <div class="loader" *ngIf="preloadVideoIndex >= 0" [class.ghost]="videos.length == preloadVideoIndex">
     <!-- Loading all videos -->
-    <!--<video id="preoload" width="100%" height="100%" class="loader-videos" (progress)="loadedVideo()" preload="auto">
+  <!--<video id="preoload" width="100%" height="100%" class="loader-videos" (progress)="loadedVideo()" preload="auto">
       <source [src]="videos[preloadVideoIndex].safe_url" type="video/mp4">
       Your browser does not support the video tag.
     </video> 
@@ -27,19 +32,24 @@
   </div>
  
 -->
-  <div id="container" [class.ghost]="!safeUrl">
-    <video #video width="100%" height="100%">
-      <source [src]="safeUrl" *ngIf="safeUrl" type="video/mp4">
+  <div
+    id="container"
+    [class.ghost]="!safeUrl"
+    (swipeleft)="swipe($event.type)"
+    (swiperight)="swipe($event.type)"
+  >
+    <video #video width="100%" height="100%" poster="../assets/poster.jpg">
+      <source [src]="safeUrl" *ngIf="safeUrl" type="video/mp4" />
       Your browser does not support the video tag.
-    </video> 
+    </video>
     <div id="next" (click)="next()">
       <div class="button" *ngIf="sceneIsActive">
-        <ion-icon name="play-forward"></ion-icon>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
       </div>
     </div>
     <div id="previous" (click)="previous()">
       <div class="button" *ngIf="sceneIsActive">
-        <ion-icon name="play-back"></ion-icon>
+        <ion-icon name="chevron-back-outline"></ion-icon>
       </div>
     </div>
   </div>

@@ -1,0 +1,13 @@
+{
+  "appId": "com.tomris.duslerkralligikadinlari",
+  "appName": "Tomris",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

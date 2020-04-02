@@ -1,5 +1,5 @@
-ion-content{
-  #container{
+ion-content {
+  #container {
     background-color: black;
     display: flex;
     align-items: center;
@@ -8,57 +8,56 @@ ion-content{
     width: 100%;
   }
   #next,
-  #previous{
+  #previous {
     z-index: 5;
     position: absolute;
     width: 50%;
     height: 100%;
     top: 0px;
     left: 0px;
-    .button{
+    .button {
       position: absolute;
       transform: translate(-50%);
       border-radius: 100%;
       width: 150%;
       height: 100%;
-      background: rgba(255,255,255,0.2);
-      ion-icon{
+      // background: rgba(255,255,255,0.2);
+      ion-icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 25%;
+        right: 30%;
         font-size: 3rem;
-        color: rgba(255,255,255,0.6);
+        color: rgba(0, 0, 0, 0.7);
       }
     }
   }
 
-  #next{
+  #next {
     left: 50%;
-    .button{
+    .button {
       left: 100%;
-      ion-icon{
-        left: 25%
+      ion-icon {
+        left: 30%;
       }
     }
   }
 
-  .language-selection{
+  .language-selection {
     position: absolute;
     width: 100%;
     left: 0px;
     height: 25%;
     bottom: 10%;
   }
-  .loader-videos{
-
+  .loader-videos {
     visibility: hidden;
   }
-  .ghost{
+  .ghost {
     visibility: hidden;
-    position: absolute;
+    position: absolute !important;
   }
-  .loading-bar{
+  .loading-bar {
     position: absolute;
     width: 90%;
     left: 5%;
