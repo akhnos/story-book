@@ -17,39 +17,35 @@ ion-content {
     left: 0px;
     .button {
       position: absolute;
-      transform: translate(-50%);
-      border-radius: 100%;
-      width: 150%;
-      height: 100%;
-      // background: rgba(255,255,255,0.2);
-      ion-icon {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 30%;
-        font-size: 3rem;
-        color: rgba(0, 0, 0, 0.7);
+      transform: translateY(-50%);
+      top:50%;
+      right: -10px;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      img{
+        height: 100%;
       }
+      // background: rgba(255,255,255,0.2);
     }
   }
 
+  #previous{
+    transform: rotateY(-180deg);
+  }
   #next {
     left: 50%;
     .button {
-      left: 100%;
-      ion-icon {
-        left: 30%;
-      }
     }
   }
 
   #gestureIndicator {
     position: absolute;
     border-radius: 10px;
-    background-color: rgba(88, 88, 88, 0.42);
     width: 50%;
     left: 25%;
-    top: 35%;
+    top:50%;
+    transform: translateY(-50%);
     opacity: 0.7;
   }
 
