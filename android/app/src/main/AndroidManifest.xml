@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tomris.duslerkralligikadinlari">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tomris.duslerkralligikadinlari"
+    android:versionCode="3"
+    android:versionName="1.0"
+    >
 
     <application
         android:allowBackup="true"
@@ -55,9 +59,9 @@
     <!-- Network API -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Navigator.getUserMedia -->
-    <!-- Video -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <!-- Audio -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+<!--    &lt;!&ndash; Video &ndash;&gt;-->
+<!--    <uses-permission android:name="android.permission.CAMERA" />-->
+<!--    &lt;!&ndash; Audio &ndash;&gt;-->
+<!--    <uses-permission android:name="android.permission.RECORD_AUDIO" />-->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
 </manifest>

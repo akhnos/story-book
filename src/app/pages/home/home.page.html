@@ -38,20 +38,25 @@
       Your browser does not support the video tag.
     </video>
     <ng-container *ngIf="sceneIsActive">
-      <div id="gestureIndicator" *ngIf="sequence == 1">
+      <!-- <div id="gestureIndicator" *ngIf="sequence == 1">
         <img src="../assets/icon/gestureIndicator.png" alt="" />
-      </div>
+      </div> -->
       <div id="next" (click)="next()">
         <div class="button">
-          <img class="iconRight" src="../assets/icon/iconRight.png" alt="" />
+          <img
+            class="iconRight"
+            src="../assets/icon/iconRight.png"
+            alt=""
+            *ngIf="sequence != 15"
+          />
           <!-- <ion-icon name="chevron-forward-outline"></ion-icon> -->
         </div>
       </div>
-      <div id="previous" (click)="previous()">
+      <!-- <div id="previous" (click)="previous()">
         <div class="button">
           <img class="iconRight rotateLeft" src="../assets/icon/iconRight.png" alt="" />
         </div>
-      </div>
+      </div> -->
     </ng-container>
   </div>
 </ion-content>

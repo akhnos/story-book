@@ -4,10 +4,46 @@ import { DataService } from '../../services/data.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  videoPauseTimes = ['0', '1', '2'];
+  // videoPauseTimes = [
+  //   0,
+  //   8,
+  //   18,
+  //   38,
+  //   64,
+  //   90,
+  //   109,
+  //   134,
+  //   145,
+  //   174,
+  //   194,
+  //   214,
+  //   232,
+  //   268,
+  //   318,
+  //   362,
+  // ];
+  videoPauseTimes = [
+    0,
+    7.8,
+    17.8,
+    37.8,
+    63.8,
+    89.7,
+    108.8,
+    133.8,
+    144.7,
+    173.6,
+    193.6,
+    213.6,
+    231.6,
+    267.6,
+    321.6,
+    // 361.6,
+  ];
+  ofset = 0;
   safeUrl: any = null;
   videoArray = new Array(15);
   preloadVideoIndex = -1;
@@ -40,8 +76,13 @@ export class HomePage {
       this.video.nativeElement.addEventListener('timeupdate', () => {
         if (
           this.video.nativeElement.currentTime >=
-          this.videoPauseTimes[this.sequence]
+          this.videoPauseTimes[this.sequence] + this.ofset
         ) {
+          console.log(
+            this.video.nativeElement.currentTime,
+            this.videoPauseTimes[this.sequence],
+            this.sequence
+          );
           this.pauseVideo();
         }
       });
@@ -61,6 +102,7 @@ export class HomePage {
     console.log('Next', this.sequence);
     if (this.sceneIsActive) {
       this.video.nativeElement.play();
+      this.sceneIsActive = false;
       this.sequence++;
     }
   }
@@ -68,12 +110,15 @@ export class HomePage {
   previous() {
     console.log('Previous', this.sequence);
     if (this.sceneIsActive) {
-      if (this.video.nativeElement.currentTime > 0) {
+      if (this.video.nativeElement.currentTime < this.videoPauseTimes[1]) {
         this.backToMenu();
         return;
       } else {
-        this.sequence--;
-        this.playVideo();
+        this.video.nativeElement.currentTime = this.videoPauseTimes[
+          this.sequence - 1
+        ];
+        this.video.nativeElement.play();
+        this.sceneIsActive = false;
       }
     }
   }
@@ -84,6 +129,10 @@ export class HomePage {
     this.safeUrl = `../assets/videos/${this.dataService.language}.mp4`;
     if (this.video) {
       this.video.nativeElement.load();
+      // this.video.nativeElement.playbackRate = 2;
+      // this.video.nativeElement.currentTime = this.videoPauseTimes[
+      //   this.sequence
+      // ];
       this.video.nativeElement.play();
     }
   }
@@ -101,9 +150,9 @@ export class HomePage {
     }
 
     // swipe right, previous video
-    if (action === this.SWIPE_ACTION.RIGHT) {
-      this.previous();
-    }
+    // if (action === this.SWIPE_ACTION.RIGHT) {
+    //   this.previous();
+    // }
 
     // swipte up, back to menu
     if (action === this.SWIPE_ACTION.UP) {
